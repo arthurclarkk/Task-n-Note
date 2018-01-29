@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.clark.newone.SignUpActivity"
+    android:background="@color/colorPrimary"
+    style="@style/AppTheme.NoActionBar"
+    android:id="@+id/activity_sign_up">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Task &amp; Note"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/editTextEmailSignUp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="202dp"
+        android:background="@drawable/fab_label_background"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextPasswordSignUp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextEmailSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/fab_label_background"
+        android:backgroundTint="@color/grey"
+        android:hint="Password"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPasswordSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:text="Register"
+        android:background="@drawable/fab_label_background"
+        android:backgroundTint="@color/colorBrown"
+        android:elevation="5dp"/>
+
+    <TextView
+        android:id="@+id/textViewLogIn"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_layout_or"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="Already a member? log in"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/login_layout_or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/textViewForgotPassSignUp">
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:layout_margin="8dp"
+            android:background="@color/colorBrown" />
+        <TextView
+            android:padding="5dp"
+            android:text="OR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/colorBrown"
+            android:layout_margin="8dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewForgotPassSignUp"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonSignup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:text="Forgot Password?"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
