@@ -1,16 +1,20 @@
-package com.example.clark.newone;
+package com.example.clark.newone.Login;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.clark.newone.MainActivity;
+import com.example.clark.newone.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -61,6 +65,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             finish();
         }
         else if (view.getId() == R.id.buttonSignup) {
+
+            String email = input_email.getText().toString();
+            String password = input_password.getText().toString();
+
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(this, "Enter your email", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             signUpUser(input_email.getText().toString(), input_password.getText().toString());
 
         }
@@ -77,10 +94,31 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             snackbar.show();
                         }
                         else{
-                            snackbar = Snackbar.make(activity_sign_up, "Registration successful : ",Snackbar.LENGTH_SHORT);
+                            snackbar = Snackbar.make(activity_sign_up, "Registration successful: " ,Snackbar.LENGTH_SHORT);
                             snackbar.show();
                         }
                     }
                 });
+
+        final Intent i = new Intent(this, MainActivity.class);
+
+        Thread timer = new Thread(){
+            public void run(){
+                try {
+                    sleep(3000);
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                finally {
+
+                    startActivity(i);
+                    finish();
+
+                }
+            }
+        };
+
+        timer.start();
+
     }
 }

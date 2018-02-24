@@ -15,7 +15,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.clark.newone.Login.LoginActivity;
+import com.example.clark.newone.Task.TasksActivity;
+import com.example.clark.newone.Tools.ToolsActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity
     private GridLayoutManager gridLayoutManager;
 
     private DatabaseReference fNotesDatabase;
+
+
 
 
     @Override
@@ -58,8 +64,7 @@ public class MainActivity extends AppCompatActivity
 
         mNotesList.setHasFixedSize(true);
         mNotesList.setLayoutManager(gridLayoutManager);
-        //gridLayoutManager.setReverseLayout(true);
-        //gridLayoutManager.setStackFromEnd(true);
+
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
@@ -142,7 +147,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void mTaskblanc(View view){
-        Intent i = new Intent(MainActivity.this, TaskActivity.class);
+        Intent i = new Intent(MainActivity.this, TasksActivity.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         finish();
@@ -165,17 +170,25 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                Toast.makeText(this, "SORRY! Settings under construction", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_logout:
+                logoutUser();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void logoutUser() {
+        mAuth.signOut();
+        if (mAuth.getCurrentUser() == null){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

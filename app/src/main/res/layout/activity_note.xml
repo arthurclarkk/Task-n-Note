@@ -21,6 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
         android:hint="@string/title"
         android:padding="10dp"
         android:maxLines="1"
@@ -38,6 +42,18 @@
         android:background="@color/colorAccent"
         android:id="@+id/view2" />
 
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/new_note_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="60dp" />
+
     <EditText
         android:id="@+id/new_note_content"
         android:layout_width="match_parent"
@@ -50,6 +66,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
+        android:padding="10dp"
         android:ems="10"
         android:gravity="top"
         android:hint="@string/description"
@@ -57,15 +74,42 @@
         android:textColorHint="@color/colorBrown"
         android:layout_marginBottom="60dp"/>
 
-    <Button
-        android:id="@+id/btn_create"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/fab_label_background"
-        android:backgroundTint="@color/colorBrown"
-        android:text="@string/create_note" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/bottomNavigationView">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true">
+
+            <Button
+                android:id="@+id/btn_plus"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/add_24dp"
+                android:paddingLeft="14dp" />
+
+            <Button
+                android:id="@+id/item_send_btn"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/send_24dp"
+                android:paddingLeft="18dp" />
+        </RelativeLayout>
+
+
+
+    </android.support.design.widget.BottomNavigationView>
+
+
 
 </RelativeLayout>

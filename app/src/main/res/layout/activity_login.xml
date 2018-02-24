@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     style="@style/AppTheme.NoActionBar"
-    tools:context="com.example.clark.newone.LoginActivity"
+    tools:context="com.example.clark.newone.Login.LoginActivity"
     android:id="@+id/loginLayout">
 
     <TextView
@@ -24,12 +24,12 @@
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
+        android:layout_alignStart="@+id/editTextPassword"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="202dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/fab_label_background"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/LightGrey"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
@@ -37,12 +37,12 @@
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_alignTop="@+id/editTextEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="76dp"
         android:background="@drawable/fab_label_background"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/LightGrey"
         android:hint="Password"
         android:ems="10"
         android:inputType="textPassword" />

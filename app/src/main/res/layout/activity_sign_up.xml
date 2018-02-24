@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.clark.newone.SignUpActivity"
+    tools:context="com.example.clark.newone.Login.SignUpActivity"
     android:background="@color/colorPrimary"
     style="@style/AppTheme.NoActionBar"
     android:id="@+id/activity_sign_up">
@@ -23,12 +23,12 @@
     <EditText
         android:id="@+id/editTextEmailSignUp"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="202dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/fab_label_background"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/LightGrey"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
@@ -36,12 +36,12 @@
     <EditText
         android:id="@+id/editTextPasswordSignUp"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_alignTop="@+id/editTextEmailSignUp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="76dp"
         android:background="@drawable/fab_label_background"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/LightGrey"
         android:hint="Password"
         android:ems="10"
         android:inputType="textPassword" />

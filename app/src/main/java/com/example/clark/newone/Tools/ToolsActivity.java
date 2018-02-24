@@ -1,7 +1,9 @@
-package com.example.clark.newone;
+package com.example.clark.newone.Tools;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.clark.newone.R;
 
 public class ToolsActivity extends AppCompatActivity {
 

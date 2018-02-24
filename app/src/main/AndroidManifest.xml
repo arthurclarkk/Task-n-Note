@@ -3,6 +3,13 @@
     package="com.example.clark.newone">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera2"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-feature android:name="android.hardware.location.gps" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        <activity android:name=".Login.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +27,13 @@
         </activity>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ForgotPassActivity"
+            android:name=".Login.ForgotPassActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Login.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
@@ -38,7 +45,7 @@
         </activity>
 
         <activity
-            android:name=".TasksActivity"
+            android:name=".Task.TasksActivity"
             android:label="All Tasks"
             android:parentActivityName=".MainActivity"/>
 
@@ -47,15 +54,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ToolsActivity" android:label="Tools">
+        <activity android:name=".Tools.ToolsActivity" android:label="Tools">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
-            android:name=".TaskActivity"
-            android:label="New Task"
-            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".NoteActivity"
             android:label="New Note"

@@ -1,6 +1,8 @@
 package com.example.clark.newone;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,7 +32,7 @@ import java.util.Map;
 
 public class NoteActivity extends AppCompatActivity {
 
-    private Button btnCreate;
+    private Button btnCreate, btnPlus;
     private EditText eTitle, eContent;
     private FirebaseAuth mAuth;
     private DatabaseReference fNoteDatabase;
@@ -40,6 +43,10 @@ public class NoteActivity extends AppCompatActivity {
     private String noteID;
 
     private boolean isExist;
+
+    private LinearLayout bottomsheetlayout;
+    private BottomSheetBehavior bottomSheetBehavior;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +59,32 @@ public class NoteActivity extends AppCompatActivity {
             //Toast.makeText(this, noteID, Toast.LENGTH_SHORT).show();
             if (!noteID.trim().equals("")) {
                 isExist = true;
-            }else {
+            } else {
                 isExist = false;
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        btnCreate = (Button) findViewById(R.id.btn_create);
+        btnCreate = (Button) findViewById(R.id.item_send_btn);
+        btnPlus = (Button) findViewById(R.id.btn_plus);
         eTitle = (EditText) findViewById(R.id.new_note_title);
         eContent = (EditText) findViewById(R.id.new_note_content);
 
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog();
+                bottomSheetDialog.show(getSupportFragmentManager(), bottomSheetDialog.getTag());
+            }
+        });
+
+
         mAuth = FirebaseAuth.getInstance();
         fNoteDatabase = FirebaseDatabase.getInstance().getReference().child("Notes").child(mAuth.getCurrentUser().getUid());
+
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +160,8 @@ public class NoteActivity extends AppCompatActivity {
 
                                 if (task.isSuccessful()) {
                                     Toast.makeText(NoteActivity.this, "Note added to Database", Toast.LENGTH_SHORT).show();
+                                    finish();
+
                                 } else
                                     Toast.makeText(NoteActivity.this, "ERROR: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -193,8 +213,10 @@ public class NoteActivity extends AppCompatActivity {
 
     @Override
     public void finish() {
-        super.finish();
+        Intent in = new Intent(this, MainActivity.class);
+        startActivity(in);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+        super.finish();
     }
 
     private void deleteNote() {
